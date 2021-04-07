@@ -4,7 +4,7 @@
 class MapTest : public ::testing::Test {};
 
 TEST_F(MapTest, mapTest) {
-    
+
   Map<int, std::string> map;
   map[4] = "Value4";
   map[1] = "Value1";
@@ -15,19 +15,16 @@ TEST_F(MapTest, mapTest) {
 
   ASSERT_EQ(map[4], "Value4");
 
-  std::vector<std::pair<int, std::string>> expected_values {
-        {1, "Value1"},
-        {2, "Value2"},
-        {3, "Value3"},
-        {4, "Value4"},
-        {6, "Value6"},
-        {8, "Value8"},
+  std::vector<std::pair<int, std::string>> expected_values{
+      {1, "Value1"}, {2, "Value2"}, {3, "Value3"},
+      {4, "Value4"}, {6, "Value6"}, {8, "Value8"},
 
-    };
+  };
 
   auto m_iter = map.begin();
   auto v_iter = expected_values.begin();
-  for(; m_iter != map.end() && v_iter != expected_values.end(); ++m_iter, ++v_iter) {
+  for (; m_iter != map.end() && v_iter != expected_values.end();
+       ++m_iter, ++v_iter) {
     ASSERT_EQ(*m_iter, *v_iter);
   }
 }
